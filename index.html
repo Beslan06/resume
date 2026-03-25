@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Беслан Муцольгов | IT Security & AI Engineer | Cyber Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', monospace;
+            background: #0a0c0f;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #e0e0e0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* neon glow effect */
+        .neon-text {
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px rgba(0, 255, 255, 0.5);
+            font-weight: 700;
+        }
+
+        
+        .neon-border {
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .neon-border:hover {
+            border-color: #0ff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* cyber card */
+        .cyber-card {
+            background: rgba(10, 20, 30, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0ff, transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cyber-card:hover::before {
+            left: 100%;
+        }
+
+        /* header */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .glitch {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75);
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75); }
+            14% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75); }
+            15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.05em 0 rgba(0, 255, 0, 0.75); }
+            49% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.05em 0 rgba(0, 255, 0, 0.75); }
+            50% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75); }
+            99% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75); }
+            100% { text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(0, 255, 0, 0.75); }
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #0ff;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #0ff;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .contact-item:hover {
+            color: #fff;
+            text-shadow: 0 0 5px #0ff;
+        }
+
+        /* section titles */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-left: 3px solid #0ff;
+            padding-left: 1rem;
+        }
+
+        .section-title i {
+            color: #0ff;
+            font-size: 1.5rem;
+        }
+
+        /* timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .job-card {
+            background: rgba(0, 20, 30, 0.5);
+            border-left: 2px solid #0ff;
+            padding: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .job-card:hover {
+            transform: translateX(5px);
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0ff;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: #88aaff;
+            font-family: monospace;
+        }
+
+        .company {
+            color: #aaa;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .duties {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+
+        .duties li {
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .duties li i {
+            color: #0ff;
+            font-size: 0.7rem;
+        }
+
+        /* skills grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .skill {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 100, 255, 0.1));
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            font-family: monospace;
+            transition: all 0.2s;
+        }
+
+        .skill:hover {
+            border-color: #0ff;
+            box-shadow: 0 0 8px #0ff;
+            transform: scale(1.02);
+        }
+
+        /* two columns layout */
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        /* education items */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        /* matrix code effect for footer */
+        .matrix-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #0a8;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .glitch {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #0a0c0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ff;
+            border-radius: 4px;
+        }
+
+        .highlight {
+            color: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section with Glitch Effect -->
+        <div class="cyber-card" style="padding: 2rem;">
+            <div class="header">
+                <div>
+                    <div class="glitch">MUTSOLGOV BESLAN</div>
+                    <div style="font-size: 1rem; margin-top: 0.5rem;">
+                        <span class="status-badge">
+                            <i class="fas fa-shield-haltered"></i> INFORMATION SECURITY
+                        </span>
+                        <span class="status-badge" style="margin-left: 0.5rem;">
+                            <i class="fas fa-brain"></i> AI ENGINEER
+                        </span>
+                    </div>
+                    <div class="contact-grid" style="margin-top: 1.5rem;">
+                        <a href="tel:+79286979771" class="contact-item"><i class="fas fa-phone-alt"></i> +7 928 697-97-71</a>
+                        <a href="mailto:bor.mm2011@yandex.ru" class="contact-item"><i class="fas fa-envelope"></i> bor.mm2011@yandex.ru</a>
+                        <span class="contact-item"><i class="fas fa-map-marker-alt"></i> Magas, Ingushetia</span>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <i class="fas fa-user-astronaut" style="font-size: 5rem; color: #0ff; opacity: 0.7;"></i>
+                    <div style="font-family: monospace; font-size: 0.8rem; margin-top: 0.5rem;">>_ active_scan.exe</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission / Objective -->
+        <div class="cyber-card" style="margin: 1.5rem 0;">
+            <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <i class="fas fa-terminal" style="font-size: 2rem; color: #0ff;"></i>
+                <div>
+                    <span style="color: #0ff; font-weight: 600;">$ ./mission --objective</span>
+                    <div style="margin-top: 0.5rem; font-size: 1rem;">
+                        «Умственное и творческое развитие. Ценю интересные задачи выше стабильности. 
+                        Хочу видеть реальные результаты и связь зарплаты с достижениями. Приверженец цифровых технологий и AI.»
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div>
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> [ WORK_EXPERIENCE ]</h2>
+            <div class="timeline">
+                <!-- ГКУ Центр бухгалтерского учёта -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <span class="job-title">>_ Программист-инженер / Системный администратор</span>
+                        <span class="job-date">2023 – present</span>
+                    </div>
+                    <div class="company">ГКУ Центр бухгалтерского учёта</div>
+                    <ul class="duties">
+                        <li><i class="fas fa-angle-right"></i> Техподдержка 1С:Предприятие, защита персональных данных</li>
+                        <li><i class="fas fa-angle-right"></i> Администрирование ИТ-инфраструктуры, системная интеграция</li>
+                    </ul>
+                </div>
+
+                <!-- Минфин РИ -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <span class="job-title">>_ Главный специалист по информационной безопасности</span>
+                        <span class="job-date">2019 – 01.2023</span>
+                    </div>
+                    <div class="company">Министерство финансов Республики Ингушетия</div>
+                    <ul class="duties">
+                        <li><i class="fas fa-angle-right"></i> Мониторинг сети на уязвимости, предоставление отчетности по ИБ</li>
+                        <li><i class="fas fa-angle-right"></i> Kaspersky Security Center: настройка, обновление, мониторинг</li>
+                        <li><i class="fas fa-angle-right"></i> Техподдержка порталов gossluzhba.gov.ru, сайта Минфина РИ</li>
+                        <li><i class="fas fa-angle-right"></i> Управление ЭЦП, СУФД, настройка сотрудников в Ингсед</li>
+                        <li><i class="fas fa-angle-right"></i> Подготовка документации по новым законам ИБ</li>
+                    </ul>
+                </div>
+
+                <!-- Преподаватель -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <span class="job-title">>_ Преподаватель информатики</span>
+                        <span class="job-date">2018 – 2019</span>
+                    </div>
+                    <div class="company">ЧПОУ Медико-технологический колледж</div>
+                    <ul class="duties">
+                        <li><i class="fas fa-angle-right"></i> Преподавание IT, администрирование сайта, техподдержка мероприятий</li>
+                        <li><i class="fas fa-angle-right"></i> Обучение преподавателей работе с ПК</li>
+                    </ul>
+                </div>
+
+                <!-- Рипсу -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <span class="job-title">>_ Программист</span>
+                        <span class="job-date">2015 – 2017</span>
+                    </div>
+                    <div class="company">ООО «Рипсу»</div>
+                    <ul class="duties">
+                        <li><i class="fas fa-angle-right"></i> Техническая поддержка, администрирование сайта</li>
+                        <li><i class="fas fa-angle-right"></i> Устранение уязвимостей, ремонт ПК и периферии</li>
+                    </ul>
+                </div>
+
+                <!-- САХАМОСТ -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <span class="job-title">>_ Бухгалтер</span>
+                        <span class="job-date">2013 – 2015</span>
+                    </div>
+                    <div class="company">ООО «САХАМОСТ»</div>
+                    <ul class="duties">
+                        <li><i class="fas fa-angle-right"></i> Контроль взаиморасчетов, бухгалтерский учет (реализация, ОС, подотчет)</li>
+                        <li><i class="fas fa-angle-right"></i> Подготовка отчетности, участие в налоговых проверках</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Skills in Two Columns -->
+        <div class="two-columns">
+            <!-- Education Column -->
+            <div class="cyber-card">
+                <h3 style="color: #0ff; margin-bottom: 1rem;"><i class="fas fa-graduation-cap"></i> // EDUCATION & CERT</h3>
+                <div class="edu-item"><span><i class="fas fa-microchip"></i> Искусственный интеллект</span><span>2022-2024 | GeekBrains</span></div>
+                <div class="edu-item"><span><i class="fas fa-code"></i> Программист (бакалавр)</span><span>2018-2021 | МГУ Синергия</span></div>
+                <div class="edu-item"><span><i class="fas fa-chart-line"></i> Цифровая трансформация</span><span>2021 | РАНХиГС</span></div>
+                <div class="edu-item"><span><i class="fas fa-chart-simple"></i> Менеджмент</span><span>2012-2016 | Дальневосточный ГАУ</span></div>
+                <div class="edu-item"><span><i class="fas fa-calculator"></i> Экономика и бухучет</span><span>2012 | АУ РС(Я)</span></div>
+                <div class="edu-item"><span><i class="fas fa-laptop"></i> UNICOM программист</span><span>03.2016 – 06.2016</span></div>
+                <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(0,255,255,0.05); border-radius: 8px;">
+                    <i class="fas fa-certificate"></i> Актуальное обучение: AI & ML, Computer Vision
+                </div>
+            </div>
+
+            <!-- Tech Stack Column -->
+            <div class="cyber-card">
+                <h3 style="color: #0ff; margin-bottom: 1rem;"><i class="fas fa-cogs"></i> // TECH_STACK</h3>
+                <div class="skills-grid">
+                    <span class="skill">Python / AI</span> <span class="skill">Dart/Flutter</span> <span class="skill">C++</span>
+                    <span class="skill">Arduino</span> <span class="skill">HTML5/CSS3</span> <span class="skill">JavaScript</span>
+                    <span class="skill">PHP/MySQL</span> <span class="skill">Bootstrap</span> <span class="skill">CMS</span>
+                    <span class="skill">1С:Бухгалтерия</span> <span class="skill">Kaspersky Security</span> <span class="skill">КриптоПро</span>
+                    <span class="skill">VipNet</span> <span class="skill">Adobe Photoshop</span> <span class="skill">SEO</span>
+                    <span class="skill">Active Directory</span> <span class="skill">СУФД/Ингсед</span> <span class="skill">Защита ПДн</span>
+                    <span class="skill">FlutterFlow</span> <span class="skill">Git</span> <span class="skill">SQL</span>
+                </div>
+                <hr style="margin: 1rem 0; border-color: #0ff3;">
+                <div><i class="fas fa-shield-virus"></i> <strong>InfoSec:</strong> KSC, мониторинг уязвимостей, ЭЦП, VipNet, аудит ИБ</div>
+                <div style="margin-top: 0.5rem;"><i class="fas fa-globe"></i> <strong>Languages:</strong> English (Pre-intermediate) — техническая документация</div>
+                <div style="margin-top: 0.5rem;"><i class="fas fa-heart" style="color: #0ff;"></i> <strong>Mindset:</strong> AI-энтузиаст, цифровая трансформация, решение нестандартных задач</div>
+            </div>
+        </div>
+
+        <!-- Additional Cyber Quote / Soft Skills -->
+        <div class="cyber-card" style="margin-top: 1rem;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                <div>
+                    <i class="fas fa-quote-left" style="color: #0ff;"></i> 
+                    <em>«Люблю технологии и познавать новое. Хочу видеть реальные результаты своего труда и понимать связь зарплаты с достижениями»</em>
+                </div>
+                <div>
+                    <span class="status-badge"><i class="fas fa-brain"></i> AI Engineer (in progress)</span>
+                    <span class="status-badge"><i class="fas fa-shield-haltered"></i> Security mindset</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer with matrix vibe -->
+        <div class="matrix-footer">
+            <i class="fas fa-terminal"></i> Beslan Mutsolgov // root@cyber_resume:~$ --ready-for-opportunities --ai-driven<br>
+            <span style="font-size: 0.7rem;"></span>
+        </div>
+    </div>
+</body>
+</html>
